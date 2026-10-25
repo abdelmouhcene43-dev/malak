@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WATRIA — Smart Water Branding</title>
+<meta name="description" content="WATRIA transforme les bouteilles d'eau en supports de branding intelligents pour événements, entreprises, mariages et salons.">
+<style>
+:root{
+  --bg:#071018;--panel:#0d1821;--panel2:#101f2a;--line:#1e3442;
+  --text:#f5fbff;--muted:#9fb2be;--blue:#25aee4;--cyan:#39d7e6;
+  --green:#35d58a;--danger:#ff5d68;--radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,Arial,sans-serif;background:radial-gradient(circle at 75% 0%,#12384a 0,#071018 38%),var(--bg);color:var(--text);line-height:1.5}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+nav{position:sticky;top:0;z-index:20;background:rgba(7,16,24,.82);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
+.navin{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;gap:10px;align-items:center;font-weight:800;font-size:20px}
+.logoMark{width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,var(--cyan),var(--blue));display:grid;place-items:center;box-shadow:0 0 30px #25aee455}
+.logoMark:after{content:"◈";font-size:18px}
+.links{display:flex;gap:26px;color:#c5d4dc;font-size:14px}
+.links a:hover{color:white}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:12px;font-weight:700;font-size:14px;border:1px solid var(--line);background:#10202a;color:white;cursor:pointer;transition:.2s}
+.btn:hover{transform:translateY(-2px);border-color:#2e7f9a}
+.btn.primary{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#031019;border:0}
+.hero{padding:92px 0 65px;display:grid;grid-template-columns:1.05fr .95fr;gap:45px;align-items:center}
+.eyebrow{color:var(--cyan);font-weight:800;letter-spacing:.13em;font-size:12px;text-transform:uppercase}
+h1{font-size:clamp(42px,6vw,72px);line-height:.98;margin:16px 0 22px;letter-spacing:-.05em}
+.grad{background:linear-gradient(90deg,#fff,var(--cyan));-webkit-background-clip:text;color:transparent}
+.hero p{color:var(--muted);font-size:18px;max-width:610px}
+.actions{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.heroCard{background:linear-gradient(145deg,#102531,#09131b);border:1px solid #214455;border-radius:28px;padding:22px;box-shadow:0 30px 90px #0008;position:relative;overflow:hidden}
+.bottle{height:390px;display:flex;align-items:center;justify-content:center;position:relative}
+.bottle:before{content:"";width:150px;height:315px;border-radius:35px 35px 42px 42px;background:linear-gradient(90deg,#bdefff,#fff 42%,#8edff4);box-shadow:0 0 60px #25aee444;position:absolute}
+.cap{width:72px;height:35px;border-radius:12px 12px 7px 7px;background:#163b50;position:absolute;top:22px}
+.label{position:absolute;width:148px;height:130px;border-radius:10px;background:#f7fdff;color:#073149;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;box-shadow:0 8px 30px #0004}
+.label strong{font-size:22px}.label span{font-size:9px}.qr{font-size:34px;margin-top:5px}
+.badge{position:absolute;bottom:24px;right:22px;background:#09161f;border:1px solid #23495b;padding:10px 13px;border-radius:12px;font-size:12px;color:#cfe5ee}
+section{padding:82px 0}
+.sectionHead{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:30px}
+.sectionHead h2{font-size:34px;letter-spacing:-.03em}.sectionHead p{color:var(--muted);max-width:520px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:linear-gradient(145deg,var(--panel2),var(--panel));border:1px solid var(--line);padding:24px;border-radius:var(--radius);transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:#2d7188}
+.icon{width:42px;height:42px;border-radius:12px;background:#123445;color:var(--cyan);display:grid;place-items:center;font-weight:900;margin-bottom:18px}
+.card h3{margin-bottom:8px}.card p{color:var(--muted);font-size:14px}
+.tag{display:inline-block;padding:5px 9px;border-radius:999px;background:#12303d;color:#7ce5f0;font-size:11px;margin-top:15px}
+.use{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.use .card{min-height:170px}
+.process{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.step{padding:18px;border:1px solid var(--line);border-radius:16px;background:#0b171f}
+.step b{color:var(--cyan);font-size:12px}.step h4{margin:10px 0 5px}.step p{font-size:12px;color:var(--muted)}
+.quote{display:grid;grid-template-columns:.8fr 1.2fr;gap:30px;align-items:start}
+.quoteIntro{background:linear-gradient(145deg,#103144,#0a1820);border:1px solid #24556a;border-radius:24px;padding:30px}
+.quoteIntro h2{font-size:35px;margin:10px 0}.quoteIntro p{color:var(--muted)}
+form{background:#0b171f;border:1px solid var(--line);padding:26px;border-radius:24px;display:grid;gap:15px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label{font-size:12px;color:#c9d9e0;display:grid;gap:7px}
+input,select,textarea{width:100%;background:#071119;border:1px solid #233b49;color:white;border-radius:11px;padding:12px;font:inherit;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--cyan)}
+textarea{min-height:110px;resize:vertical}
+.checks{display:flex;flex-wrap:wrap;gap:8px}.check{background:#0d222d;border:1px solid #214352;border-radius:999px;padding:8px 11px;font-size:12px}
+.check input{width:auto;margin-right:5px}
+.notice{display:none;padding:12px;border-radius:10px;background:#0d3a2b;color:#9ff0c8;font-size:13px}
+footer{border-top:1px solid var(--line);padding:35px 0;color:var(--muted)}
+.footerin{display:flex;justify-content:space-between;gap:20px}
+@media(max-width:850px){
+ .links{display:none}.hero,.quote{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.use{grid-template-columns:1fr 1fr}.process{grid-template-columns:1fr 1fr}.hero{padding-top:55px}
+}
+@media(max-width:560px){
+ .grid,.use,.process,.row{grid-template-columns:1fr}section{padding:60px 0}h1{font-size:48px}.bottle{height:330px}
+}
+</style>
+</head>
+<body>
+<nav>
+ <div class="container navin">
+  <a class="logo" href="#home"><span class="logoMark"></span>WATRIA</a>
+  <div class="links">
+   <a href="#services">Services</a><a href="#solutions">Solutions</a><a href="#process">Comment ça marche</a><a href="#quote">Demander un devis</a>
+  </div>
+  <a class="btn primary" href="#quote">Créer mon projet</a>
+ </div>
+</nav>
+
+<main id="home">
+<section class="container hero">
+ <div>
+  <div class="eyebrow">Smart Water Branding</div>
+  <h1>Votre eau.<br><span class="grad">Votre identité.</span></h1>
+  <p>WATRIA crée des bouteilles d’eau personnalisées pour les événements, entreprises, mariages, foires et salons — avec design, QR Code et solutions de sponsoring.</p>
+  <div class="actions"><a class="btn primary" href="#quote">Demander un devis</a><a class="btn" href="#services">Voir les services</a></div>
+ </div>
+ <div class="heroCard">
+  <div class="bottle"><div class="cap"></div><div class="label"><strong>WATRIA</strong><span>SMART WATER BRANDING</span><div class="qr">▦</div></div></div>
+  <div class="badge">QR interactif • Design sur mesure</div>
+ </div>
+</section>
+
+<section id="services">
+ <div class="container">
+  <div class="sectionHead"><div><div class="eyebrow">Nos services</div><h2>Tout ce qu’il faut pour votre projet</h2></div><p>Le client choisit son occasion, sa quantité et son style. WATRIA s’occupe du reste.</p></div>
+  <div class="grid">
+   <article class="card"><div class="icon">✦</div><h3>Design personnalisé</h3><p>Label, couleurs, logo, message et identité visuelle adaptés à votre marque ou événement.</p><span class="tag">Branding</span></article>
+   <article class="card"><div class="icon">▦</div><h3>QR Smart</h3><p>Un QR Code qui peut ouvrir programme, réseaux sociaux, plan, offres, contacts ou contenu digital.</p><span class="tag">Digital</span></article>
+   <article class="card"><div class="icon">◉</div><h3>Production & livraison</h3><p>Préparation des bouteilles et coordination de la production selon votre quantité et votre date.</p><span class="tag">Logistique</span></article>
+   <article class="card"><div class="icon">◎</div><h3>Sponsor Water</h3><p>Transformez la bouteille en espace de visibilité pour vos partenaires et sponsors.</p><span class="tag">Sponsoring</span></article>
+   <article class="card"><div class="icon">⌁</div><h3>Event Package</h3><p>Une solution complète pour forums, séminaires, festivals, salons et grands événements.</p><span class="tag">Events</span></article>
+   <article class="card"><div class="icon">↗</div><h3>Analytics</h3><p>Pour les offres Smart, mesurez les interactions avec votre QR et obtenez des indicateurs simples.</p><span class="tag">Data</span></article>
+  </div>
+ </div>
+</section>
+
+<section id="solutions">
+ <div class="container">
+  <div class="sectionHead"><div><div class="eyebrow">Pour qui ?</div><h2>Une bouteille pour chaque occasion</h2></div></div>
+  <div class="use">
+   <article class="card"><h3>💍 Mariages</h3><p>Prénoms, date, thème, salle et QR vers photos ou réseaux.</p></article>
+   <article class="card"><h3>🏢 Entreprises</h3><p>Séminaires, formations, lancements et cadeaux corporate.</p></article>
+   <article class="card"><h3>🎪 Foires & salons</h3><p>Logo du salon, exposants, plan et sponsors.</p></article>
+   <article class="card"><h3>🎤 Forums & events</h3><p>Programme, speakers, partenaires, offres et interactions.</p></article>
+  </div>
+ </div>
+</section>
+
+<section id="process">
+ <div class="container">
+  <div class="sectionHead"><div><div class="eyebrow">Simple & rapide</div><h2>Comment ça marche ?</h2></div></div>
+  <div class="process">
+   <div class="step"><b>01</b><h4>Votre demande</h4><p>Occasion, quantité, date et ville.</p></div>
+   <div class="step"><b>02</b><h4>Votre design</h4><p>Vous envoyez logo, couleurs et idées.</p></div>
+   <div class="step"><b>03</b><h4>Validation</h4><p>Nous préparons la proposition.</p></div>
+   <div class="step"><b>04</b><h4>Production</h4><p>Préparation et personnalisation.</p></div>
+   <div class="step"><b>05</b><h4>Livraison</h4><p>Votre commande arrive prête pour l’événement.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="quote">
+ <div class="container quote">
+  <div class="quoteIntro">
+   <div class="eyebrow">Votre projet</div>
+   <h2>Demandez votre devis</h2>
+   <p>Remplissez le formulaire. L’objectif est de comprendre votre besoin avant de vous proposer un package adapté.</p>
+   <br><p><b>Conseil :</b> indiquez la quantité approximative et la date de votre événement pour une réponse plus précise.</p>
+  </div>
+  <form id="quoteForm">
+   <div class="row">
+    <label>Nom / entreprise<input name="name" required placeholder="Votre nom"></label>
+    <label>Téléphone<input name="phone" required placeholder="+213 ..."></label>
+   </div>
+   <div class="row">
+    <label>Email<input type="email" name="email" placeholder="email@exemple.com"></label>
+    <label>Type d’événement<select name="event"><option>Mariage</option><option>Entreprise</option><option>Foire / Salon</option><option>Forum / Conférence</option><option>Festival</option><option>Hôtel / Restaurant</option><option>Autre</option></select></label>
+   </div>
+   <div class="row">
+    <label>Quantité estimée<select name="qty"><option>Moins de 100</option><option>100 – 500</option><option>500 – 1 000</option><option>1 000 – 5 000</option><option>Plus de 5 000</option></select></label>
+    <label>Date souhaitée<input type="date" name="date"></label>
+   </div>
+   <label>Services souhaités</label>
+   <div class="checks">
+    <label class="check"><input type="checkbox" name="service" value="Design"> Design</label>
+    <label class="check"><input type="checkbox" name="service" value="QR"> QR Smart</label>
+    <label class="check"><input type="checkbox" name="service" value="Sponsoring"> Sponsoring</label>
+    <label class="check"><input type="checkbox" name="service" value="Livraison"> Livraison</label>
+   </div>
+   <label>Votre besoin<textarea name="message" placeholder="Ex : 800 bouteilles pour un forum à Alger, design bleu/blanc, QR vers programme..."></textarea></label>
+   <button class="btn primary" type="submit">Envoyer ma demande →</button>
+   <div class="notice" id="notice">Demande enregistrée sur cette démo. Pour recevoir les vraies demandes, connectez le formulaire à votre email, WhatsApp ou base de données.</div>
+  </form>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="container footerin">
+  <div><b style="color:white">WATRIA</b><br>Smart Water Branding</div>
+  <div>Algeria • Events • Companies • Weddings</div>
+  <div>© 2026 WATRIA</div>
+ </div>
+</footer>
+
+<script>
+document.getElementById('quoteForm').addEventListener('submit', function(e){
+ e.preventDefault();
+ const data = new FormData(this);
+ const services = [...this.querySelectorAll('input[name="service"]:checked')].map(x=>x.value).join(', ');
+ const summary = `Nouvelle demande WATRIA
+Nom: ${data.get('name')}
+Téléphone: ${data.get('phone')}
+Email: ${data.get('email') || '-'}
+Événement: ${data.get('event')}
+Quantité: ${data.get('qty')}
+Date: ${data.get('date') || '-'}
+Services: ${services || '-'}
+Besoin: ${data.get('message') || '-'}`;
+ console.log(summary);
+ document.getElementById('notice').style.display='block';
+ this.reset();
+});
+</script>
+</body>
+</html>
